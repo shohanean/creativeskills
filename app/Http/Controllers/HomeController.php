@@ -24,12 +24,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home',[
-            'users' => User::latest()->get(),
-            'courses' => Course::all(),
-            'students' => Student::all(),
-        ]);
+        if($request->course_id){
+            $students = Student::where('course_id', $request->course_id)->get();
+        }
+        else{
+            $students = Student::all();
+        }
+        $users = User::latest()->get();
+        $courses = Course::all();
+        return view('home', compact('users', 'courses', 'students'));
     }
 }

@@ -27,7 +27,7 @@
             <!--begin::Filter menu-->
             <div class="m-0">
                 <!--begin::Menu toggle-->
-                <a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                <a href="#" class="btn btn-sm btn-flex btn-info btn-active-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                 <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
                 <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -48,77 +48,49 @@
                     <!--end::Menu separator-->
                     <!--begin::Form-->
                     <div class="px-7 py-5">
-                        <!--begin::Input group-->
-                        <div class="mb-10">
-                            <!--begin::Label-->
-                            <label class="form-label fw-bold">Status:</label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <div>
-                                <select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_6244763d93048" data-allow-clear="true">
-                                    <option></option>
-                                    <option value="1">Approved</option>
-                                    <option value="2">Pending</option>
-                                    <option value="2">In Process</option>
-                                    <option value="2">Rejected</option>
-                                </select>
+                        <form action="{{ route('home') }}" method="GET">
+                            <!--begin::Input group-->
+                            <div class="mb-10">
+                                <!--begin::Label-->
+                                <label class="form-label fw-bold">Select Course:</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <div>
+                                    <select name="course_id" class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_6244763d93048" data-allow-clear="true">
+                                        <option value="">-Select One Course-</option>
+                                        @foreach ($courses as $course)
+                                            <option value="{{ $course->id }}">{{ $course->course_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <!--end::Input-->
                             </div>
-                            <!--end::Input-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="mb-10">
-                            <!--begin::Label-->
-                            <label class="form-label fw-bold">Member Type:</label>
-                            <!--end::Label-->
-                            <!--begin::Options-->
-                            <div class="d-flex">
-                                <!--begin::Options-->
-                                <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                    <input class="form-check-input" type="checkbox" value="1" />
-                                    <span class="form-check-label">Author</span>
-                                </label>
-                                <!--end::Options-->
-                                <!--begin::Options-->
-                                <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                    <span class="form-check-label">Customer</span>
-                                </label>
-                                <!--end::Options-->
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="mb-10">
+                                <!--begin::Label-->
+                                <label class="form-label fw-bold">Month:</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <div>
+                                    <input class="form-control" type="month">
+                                </div>
+                                <!--end::Input-->
                             </div>
-                            <!--end::Options-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="mb-10">
-                            <!--begin::Label-->
-                            <label class="form-label fw-bold">Notifications:</label>
-                            <!--end::Label-->
-                            <!--begin::Switch-->
-                            <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                <input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-                                <label class="form-check-label">Enabled</label>
+                            <!--end::Input group-->
+                            <!--begin::Actions-->
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ route('home') }}" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</a>
+                                <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
                             </div>
-                            <!--end::Switch-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Actions-->
-                        <div class="d-flex justify-content-end">
-                            <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-                            <button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-                        </div>
-                        <!--end::Actions-->
+                            <!--end::Actions-->
+                        </form>
                     </div>
                     <!--end::Form-->
                 </div>
                 <!--end::Menu 1-->
             </div>
             <!--end::Filter menu-->
-            <!--begin::Secondary button-->
-            <!--end::Secondary button-->
-            <!--begin::Primary button-->
-            <a href="../../demo1/dist/.html" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
-            <!--end::Primary button-->
         </div>
         <!--end::Actions-->
     </div>
@@ -251,6 +223,15 @@
     <!--end::Col-->
 </div>
 <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body text-center bg-info">
+                <h2>All Time & All Course</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
     <!--begin::Col-->
     <div class="col-xl-3">
         <!--begin::Card widget 3-->
@@ -259,7 +240,7 @@
             <div class="card-header pt-5 mb-3">
                 <!--begin::Icon-->
                 <div class="d-flex flex-center rounded-circle h-80px w-80px" style="border: 1px dashed rgba(255, 255, 255, 0.4);background-color: #7239EA">
-                    <i class="fas fa-award text-white fa-2x"></i>
+                    <i class="far fa-money-bill-alt text-white fa-2x"></i>
                 </div>
                 <!--end::Icon-->
             </div>
@@ -268,10 +249,10 @@
             <div class="card-body d-flex align-items-end mb-3">
                 <!--begin::Info-->
                 <div class="d-flex align-items-center">
-                    <span class="fs-4hx text-white fw-bold me-6">{{ $courses->count() }}</span>
+                    <span class="fs-2hx text-white fw-bold me-6">{{ $students->sum('course_fee') }}</span>
                     <div class="fw-bold fs-6 text-white">
                         <span class="d-block">Total</span>
-                        <span class="">Courses</span>
+                        <span class="">Income</span>
                     </div>
                 </div>
                 <!--end::Info-->
@@ -289,7 +270,7 @@
             <div class="card-header pt-5 mb-3">
                 <!--begin::Icon-->
                 <div class="d-flex flex-center rounded-circle h-80px w-80px" style="border: 1px dashed rgba(255, 255, 255, 0.4);background-color: #7239EA">
-                    <i class="fas fa-user-graduate text-white fa-2x"></i>
+                    <i class="fa fa-percentage text-white fa-2x"></i>
                 </div>
                 <!--end::Icon-->
             </div>
@@ -298,70 +279,70 @@
             <div class="card-body d-flex align-items-end mb-3">
                 <!--begin::Info-->
                 <div class="d-flex align-items-center">
-                    <span class="fs-4hx text-white fw-bold me-6">{{ $students->count() }}</span>
-                    <div class="fw-bold fs-6 text-white">
-                        <span class="d-block">Admitted</span>
-                        <span class="">Students</span>
-                    </div>
-                </div>
-                <!--end::Info-->
-            </div>
-            <!--end::Card body-->
-        </div>
-        <!--end::Card widget 3-->
-    </div>
-    <!--end::Col-->
-    <!--begin::Col-->
-    <div class="col-xl-3">
-        <!--begin::Card widget 3-->
-        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
-            <!--begin::Header-->
-            <div class="card-header pt-5 mb-3">
-                <!--begin::Icon-->
-                <div class="d-flex flex-center rounded-circle h-80px w-80px" style="border: 1px dashed rgba(255, 255, 255, 0.4);background-color: #7239EA">
-                    <i class="fa fa-user-check text-white fa-2x"></i>
-                </div>
-                <!--end::Icon-->
-            </div>
-            <!--end::Header-->
-            <!--begin::Card body-->
-            <div class="card-body d-flex align-items-end mb-3">
-                <!--begin::Info-->
-                <div class="d-flex align-items-center">
-                    <span class="fs-4hx text-white fw-bold me-6">{{ $users->whereNotNull('email_verified_at')->count() }}</span>
-                    <div class="fw-bold fs-6 text-white">
-                        <span class="d-block">Verified</span>
-                        <span class="">Users</span>
-                    </div>
-                </div>
-                <!--end::Info-->
-            </div>
-            <!--end::Card body-->
-        </div>
-        <!--end::Card widget 3-->
-    </div>
-    <!--end::Col-->
-    <!--begin::Col-->
-    <div class="col-xl-3">
-        <!--begin::Card widget 3-->
-        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
-            <!--begin::Header-->
-            <div class="card-header pt-5 mb-3">
-                <!--begin::Icon-->
-                <div class="d-flex flex-center rounded-circle h-80px w-80px" style="border: 1px dashed rgba(255, 255, 255, 0.4);background-color: #7239EA">
-                    <i class="fa fa-users text-white fa-2x"></i>
-                </div>
-                <!--end::Icon-->
-            </div>
-            <!--end::Header-->
-            <!--begin::Card body-->
-            <div class="card-body d-flex align-items-end mb-3">
-                <!--begin::Info-->
-                <div class="d-flex align-items-center">
-                    <span class="fs-4hx text-white fw-bold me-6">{{ $users->count() }}</span>
+                    <span class="fs-2hx text-white fw-bold me-6">{{ $students->sum('vat') }}</span>
                     <div class="fw-bold fs-6 text-white">
                         <span class="d-block">Total</span>
-                        <span class="">Users</span>
+                        <span class="">Vat</span>
+                    </div>
+                </div>
+                <!--end::Info-->
+            </div>
+            <!--end::Card body-->
+        </div>
+        <!--end::Card widget 3-->
+    </div>
+    <!--end::Col-->
+    <!--begin::Col-->
+    <div class="col-xl-3">
+        <!--begin::Card widget 3-->
+        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
+            <!--begin::Header-->
+            <div class="card-header pt-5 mb-3">
+                <!--begin::Icon-->
+                <div class="d-flex flex-center rounded-circle h-80px w-80px" style="border: 1px dashed rgba(255, 255, 255, 0.4);background-color: #7239EA">
+                    <i class="fas fa-money-bill-wave text-white fa-2x"></i>
+                </div>
+                <!--end::Icon-->
+            </div>
+            <!--end::Header-->
+            <!--begin::Card body-->
+            <div class="card-body d-flex align-items-end mb-3">
+                <!--begin::Info-->
+                <div class="d-flex align-items-center">
+                    <span class="fs-2hx text-white fw-bold me-6">{{ $students->sum('net_amount') }}</span>
+                    <div class="fw-bold fs-6 text-white">
+                        <span class="d-block">Net</span>
+                        <span class="">Amount</span>
+                    </div>
+                </div>
+                <!--end::Info-->
+            </div>
+            <!--end::Card body-->
+        </div>
+        <!--end::Card widget 3-->
+    </div>
+    <!--end::Col-->
+    <!--begin::Col-->
+    <div class="col-xl-3">
+        <!--begin::Card widget 3-->
+        <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
+            <!--begin::Header-->
+            <div class="card-header pt-5 mb-3">
+                <!--begin::Icon-->
+                <div class="d-flex flex-center rounded-circle h-80px w-80px" style="border: 1px dashed rgba(255, 255, 255, 0.4);background-color: #7239EA">
+                    <i class="fas fa-money-bill-wave text-white fa-2x"></i>
+                </div>
+                <!--end::Icon-->
+            </div>
+            <!--end::Header-->
+            <!--begin::Card body-->
+            <div class="card-body d-flex align-items-end mb-3">
+                <!--begin::Info-->
+                <div class="d-flex align-items-center">
+                    <span class="fs-2hx text-white fw-bold me-6">{{ $students->sum('net_amount') }}</span>
+                    <div class="fw-bold fs-6 text-white">
+                        <span class="d-block">Net</span>
+                        <span class="">Amount</span>
                     </div>
                 </div>
                 <!--end::Info-->
