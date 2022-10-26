@@ -28,12 +28,14 @@ class HomeController extends Controller
     {
         if($request->course_id){
             $students = Student::where('course_id', $request->course_id)->get();
+            $course_name = Course::find($request->course_id)->course_name;
         }
         else{
             $students = Student::all();
+            $course_name = "";
         }
         $users = User::latest()->get();
         $courses = Course::all();
-        return view('home', compact('users', 'courses', 'students'));
+        return view('home', compact('users', 'courses', 'students', 'course_name'));
     }
 }

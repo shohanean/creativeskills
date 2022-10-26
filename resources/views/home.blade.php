@@ -226,14 +226,20 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body text-center bg-info">
-                <h2>All Time & All Course</h2>
+                <h2 class="text-white">
+                    @if ($course_name)
+                        Filter Result: {{ $course_name }}
+                    @else
+                        All Time & All Course
+                    @endif
+                </h2>
             </div>
         </div>
     </div>
 </div>
 <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
     <!--begin::Col-->
-    <div class="col-xl-3">
+    <div class="col-xl-4">
         <!--begin::Card widget 3-->
         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
             <!--begin::Header-->
@@ -263,7 +269,7 @@
     </div>
     <!--end::Col-->
     <!--begin::Col-->
-    <div class="col-xl-3">
+    <div class="col-xl-4">
         <!--begin::Card widget 3-->
         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
             <!--begin::Header-->
@@ -293,7 +299,7 @@
     </div>
     <!--end::Col-->
     <!--begin::Col-->
-    <div class="col-xl-3">
+    <div class="col-xl-4">
         <!--begin::Card widget 3-->
         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
             <!--begin::Header-->
@@ -323,7 +329,7 @@
     </div>
     <!--end::Col-->
     <!--begin::Col-->
-    <div class="col-xl-3">
+    {{-- <div class="col-xl-3">
         <!--begin::Card widget 3-->
         <div class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-xl-70" style="background-color: #7239EA;background-image:url({{ asset('dashboard_assets/media/svg/shapes/wave-bg-purple.svg') }})">
             <!--begin::Header-->
@@ -350,7 +356,7 @@
             <!--end::Card body-->
         </div>
         <!--end::Card widget 3-->
-    </div>
+    </div> --}}
     <!--end::Col-->
 </div>
 @endsection

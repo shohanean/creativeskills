@@ -33,21 +33,23 @@
 							<!--begin::Logo-->
 							<div class="mb-7">
 								<a href="../../demo1/dist/index.html" class="">
-									<img alt="Logo" src="{{ env('PROJECT_LOGO') }}" class="h-40px" />
+									<img alt="Logo" src="{{ env('PROJECT_LOGO') }}" class="h-60px" />
 								</a>
 							</div>
 							<!--end::Logo-->
 							<!--begin::Title-->
-							<h1 class="fw-bolder text-gray-900 mb-5">Welcome to Metronic</h1>
+							<h1 class="fw-bolder text-gray-900 mb-5">Welcome to Creativeskills</h1>
 							<!--end::Title-->
 							<!--begin::Text-->
-							<div class="fw-semibold fs-6 text-gray-500 mb-7">This is your opportunity to get creative and make a name
-							<br />that gives readers an idea</div>
+							<div class="fw-semibold fs-6 text-gray-500 mb-7">								
+								As mentors, we constantly strive to prepare our students for the "competitive job market"<br>that will ensure a better career in future.
+								<br>Build with us your bright future.
+							</div>
 							<!--end::Text-->
 							<!--begin::Illustration-->
-							<div class="mb-0">
+							<!-- <div class="mb-0">
 								<img src="{{ asset('dashboard_assets') }}/media/auth/welcome.png" class="mw-100 mh-300px theme-light-show" alt="" />
-							</div>
+							</div> -->
 							<!--end::Illustration-->
 							<!--begin::Link-->
                             @if (Route::has('login'))
